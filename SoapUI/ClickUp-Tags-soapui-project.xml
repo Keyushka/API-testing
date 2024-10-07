@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3b6a6169-692f-465a-b18e-0a8284fea8b3" activeEnvironment="Default" name="ClickUp_Tags" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="4983a280-063c-48bc-9bdf-3e80dda7152a" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://api.clickup.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://api.clickup.com</con:endpoint></con:endpoints><con:resource name="" path="/api/v2/space/${#Project#space_id}/tag" id="8096daa2-24e9-4173-9e58-5f2a63782aec"><con:settings/><con:parameters/><con:method name="Get Space Tags" id="867fb6f7-46e3-4118-81f6-5e4d6f0795d6" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:tag="https://api.clickup.com/api/v2/space/90121364847/tag">tag:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tag="https://api.clickup.com/api/v2/space/90121364847/tag">tag:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Get Tags" id="f3512f1f-81e5-4513-9d95-16d16868285f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/space/90121364847/tag</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method><con:method name="Create Space Tag" id="e8db08aa-e719-44aa-9669-1a91c9d8b2bd" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Create Tag" id="812062f0-ba59-4e12-ac06-e88b9848a93a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request>{
+    "tag": {
+      "name": "New_${#TestSuite#random_tage_name}",
+      "tag_fg": "#000300",
+      "tag_bg": "#000400"
+    }
+}</con:request><con:originalUri>https://api.clickup.com/api/v2/space/90121364847/tag</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource><con:resource name="" path="/api/v2/space/${#Project#space_id}/tag/${#Project#tag_name}" id="6fe4ee28-abf5-4037-bff1-4733c5d261c7"><con:settings/><con:parameters/><con:method name="Edit Space Tag" id="1940ae5d-c968-4574-b9ec-996ce9f62b00" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:tag="https://api.clickup.com/api/v2/space/space_id/tag/tag_name">tag:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Edit Tag" id="c4b079c3-ff38-49f6-858d-62f9b6da2d14" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request>{
+    "tag": {
+      "name": "${#Project#upd_tag_name}",
+      "tag_fg": "#000001",
+      "tag_bg": "#000002"
+    }
+}</con:request><con:originalUri>https://api.clickup.com/api/v2/space/space_id/tag/tag_name</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource><con:resource name="" path="/api/v2/task/${#Project#task_id}/tag/${#Project#tag_name}" id="2e733fce-bf40-4cb0-a42d-aedea2b66c35"><con:settings/><con:parameters><con:parameter><con:name>custom_task_ids</con:name><con:value>true</con:value><con:style>QUERY</con:style><con:default>true</con:default></con:parameter><con:parameter><con:name>team_id</con:name><con:value>9012290639</con:value><con:style>QUERY</con:style><con:default>9012290639</con:default></con:parameter></con:parameters><con:method name="Add Tag To Task" id="76c61f26-44a4-4cff-88e3-b2109a2a2622" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application /json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="Add Tag To Task" id="758236cc-89a2-4466-b0d0-588dcd7cc6a1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application /json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/task/869630rqu/tag/New_</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="team_id" value="${#Project#team_id}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method><con:method name="Remove Tag From Task" id="62efebf5-4f7b-4db1-bfbb-4fc13688651d" method="DELETE"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:new="https://api.clickup.com/api/v2/task/869630rqu/tag/New_c0379b81">new:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application /json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Remove Tag From Task" id="eaae207c-a273-4045-bee4-a6faa04f4e3f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application /json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/task/869630rqu/tag/New_</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="team_id" value="${#Project#team_id}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="" path="/api/v2/space/${#Project#space_id}/tag/${#Project#upd_tag_name}" id="6fe4ee28-abf5-4037-bff1-4733c5d261c7"><con:settings/><con:parameters/><con:method name="Delete Space Tag" id="8f40ba8a-7d42-47cb-9f3c-b8ec3c8391e2" method="DELETE"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="Delete updated Tag" id="de12cd77-78b7-45ad-b6af-315df0fbaa1e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/space/90121364847/tag/New_</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource></con:interface><con:testSuite id="0ddebd6f-7a0c-457f-b296-883529bf0952" name="CRUD for Tags"><con:description>TestSuite generated for REST Service [https://api.clickup.com]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="aa356e26-a95e-491f-8715-44840c99fd58" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Tags TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [] located at [/api/v2/space/{space_id}/tag]</con:description><con:settings/><con:testStep type="groovy" name="Generate random name" id="2d119055-4edc-4a8c-8412-d2d01ba0d9ed"><con:settings/><con:config><script>def generateRandomName() {
+    def randomName = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 8) // Генерує випадкове ім'я довжиною 8 символів
+    return randomName
+}
+
+def name = generateRandomName() // Генеруємо ім'я
+log.info("Generated random name: ${name}")
+
+// Зберігаємо це ім'я в контексті тесту для подальшого використання
+testRunner.testCase.testSuite.setPropertyValue("random_tage_name", name)
+</script></con:config></con:testStep><con:testStep type="restrequest" name="Get Tags" id="198c3901-b3f6-4ff9-b8e9-9a956e0e2847"><con:settings/><con:config service="https://api.clickup.com" resourcePath="/api/v2/space/${#Project#space_id}/tag" methodName="Get Space Tags" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get Tags" id="f3512f1f-81e5-4513-9d95-16d16868285f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/space/90121364847/tag</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="e3b0661f-832e-4350-8176-b21b9c6ed214" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="73179ad9-6dc5-4efe-a556-99da66217fb3" name="Checking for keys and correct data types"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+// Response
+def jsonResponse = new JsonSlurper().parseText(messageExchange.responseContent)
+
+    // Перевіряємо наявність і типи даних у кожному тегу
+    jsonResponse.tags.each { tag ->
+        assert tag.containsKey('name') : "Тег не містить ключ 'name'"
+        assert tag.containsKey('tag_fg') : "Тег не містить ключ 'tag_fg'"
+        assert tag.containsKey('tag_bg') : "Тег не містить ключ 'tag_bg'"
+
+        assert tag.name instanceof String : "Неправильний тип даних для 'name', очікується String"
+        assert tag.tag_fg instanceof String : "Неправильний тип даних для 'tag_fg', очікується String"
+        assert tag.tag_bg instanceof String : "Неправильний тип даних для 'tag_bg', очікується String"
+    }
+
+log.info "Усі ключі присутні і мають правильні типи даних."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Create Tag" id="3818e325-e198-4562-be98-910cedc870b5"><con:settings/><con:config service="https://api.clickup.com" resourcePath="/api/v2/space/${#Project#space_id}/tag" methodName="Create Space Tag" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Create Tag" id="812062f0-ba59-4e12-ac06-e88b9848a93a" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request>{
+    "tag": {
+      "name": "${#Project#tag_name}",
+      "tag_fg": "#000300",
+      "tag_bg": "#000400"
+    }
+}</con:request><con:originalUri>https://api.clickup.com/api/v2/space/90121364847/tag</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6d869794-8b09-4795-84fc-549d9fbd74b5" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="cdbe76fd-42f1-46d3-924b-fc07f68991ad" name="Check TAG with required name in the Get Tags"><con:configuration><scriptText>import groovy.json.JsonSlurper
+import com.eviware.soapui.support.types.StringToObjectMap
+
+def url = 'https://api.clickup.com/api/v2/space/90121364847/tag'
+def authToken = 'pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD'
+
+// GET-request for ALL Tags
+def connection = new URL(url).openConnection()
+connection.setRequestMethod('GET')
+connection.setRequestProperty('Authorization', authToken)
+
+// Respons
+def responseCode = connection.responseCode
+if (responseCode == 200) {
+    def responseStream = connection.inputStream.text
+    def jsonResponse = new JsonSlurper().parseText(responseStream)
+
+    // Отримуємо ім'я тега, яке ми очікуємо
+    def expectedTagName = context.expand('${#Project#tag_name}')
+    jsonResponse.tags.each { log.info("Отриманий тег: " + it.name) }
+
+    // Перевіряємо чи існує тег з таким ім'ям
+    def tagFound = jsonResponse.tags.any { it.name.equalsIgnoreCase(expectedTagName) }
+    log.info("Очікуване ім'я тега: " + expectedTagName)
+
+    if (tagFound) {
+        log.info "Тег з іменем " + expectedTagName + " успішно знайдений!"
+        assert true
+    } else {
+        log.error "Тег з іменем " + expectedTagName + " не знайдений!"
+        assert false
+    }
+    
+} else {
+    log.error "Запит не вдався. Код відповіді: " + responseCode
+    assert false
+}
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Add Tag To Task" id="6b099de8-636a-4a94-9ca5-16bc4bef60ce"><con:settings/><con:config service="https://api.clickup.com" resourcePath="/api/v2/task/${#Project#task_id}/tag/${#Project#tag_name}" methodName="Add Tag To Task" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Add Tag To Task - Add Tag To Task" id="758236cc-89a2-4466-b0d0-588dcd7cc6a1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application /json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/task/869630rqu/tag/New_</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="334c5985-7328-4633-97b1-35b8d406b08d" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6a9aa9d6-e8ad-4fdf-9904-f06b8c647074" name="Check required Tag name in the Get Task"><con:configuration><scriptText>import groovy.json.JsonSlurper
+import com.eviware.soapui.support.types.StringToObjectMap
+
+def url = 'https://api.clickup.com/api/v2/task/869630rqu?custom_task_ids=true&amp;team_id=9012290639&amp;include_subtasks=true&amp;include_markdown_description=true&amp;custom_fields=string'
+def authToken = 'pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD'
+
+// Виконуємо GET-запит для отримання інформації про таску
+def connection = new URL(url).openConnection()
+connection.setRequestMethod('GET')
+connection.setRequestProperty('Authorization', authToken)
+
+// Отримуємо відповідь
+def responseCode = connection.responseCode
+if (responseCode == 200) {
+    def responseStream = connection.inputStream.text
+    def jsonResponse = new JsonSlurper().parseText(responseStream)
+
+    // Отримуємо ім'я тега, яке ми очікуємо
+    def expectedTagName = context.expand('${#Project#tag_name}')
+    log.info("Очікуване ім'я тегу: " + expectedTagName)
+
+    // Виводимо всі отримані теги
+    jsonResponse.tags.each { log.info("Отриманий тег: " + it.name) }
+
+    // Перевіряємо, що тег з таким ім'ям існує
+    def tagFound = jsonResponse.tags.any { it.name.equalsIgnoreCase(expectedTagName) }
+
+    if (tagFound) {
+        log.info "Тег з ім'ям " + expectedTagName + " успішно знайдений!"
+        assert true
+    } else {
+        log.error "Тег з ім'ям " + expectedTagName + " не знайдений!"
+        assert false
+    }
+} else {
+    log.error "Запит не вдався. Код відповіді: " + responseCode
+    assert false
+}
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="team_id" value="${#Project#team_id}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Remove Tag From Task" id="4fd0bed3-ff27-4f81-b280-83f912a3613d"><con:settings/><con:config service="https://api.clickup.com" resourcePath="/api/v2/task/${#Project#task_id}/tag/${#Project#tag_name}" methodName="Remove Tag From Task" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Remove Tag From Task - Remove Tag From Task" id="eaae207c-a273-4045-bee4-a6faa04f4e3f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application /json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request/><con:originalUri>https://api.clickup.com/api/v2/task/869630rqu/tag/New_</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6c4bf002-4d9a-4643-8c9e-8fdd11bf9438" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7a271292-eed9-4f41-b3e8-5343e697c705" name="Check required Tag name is not in the Get Task" disabled="true"><con:configuration><scriptText>import groovy.json.JsonSlurper
+import com.eviware.soapui.support.types.StringToObjectMap
+
+// URL для GET-запиту
+def url = 'https://api.clickup.com/api/v2/task/869630rqu?custom_task_ids=true&amp;team_id=9012290639&amp;include_subtasks=true&amp;include_markdown_description=true&amp;custom_fields=string'
+
+// Токен авторизації
+def authToken = 'pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD'
+
+// Виконуємо GET-запит для отримання інформації про таску
+def connection = new URL(url).openConnection()
+connection.setRequestMethod('GET')
+connection.setRequestProperty('Authorization', authToken)
+
+// Отримуємо відповідь
+def responseCode = connection.responseCode
+if (responseCode == 200) {
+    def responseStream = connection.inputStream.text
+    def jsonResponse = new JsonSlurper().parseText(responseStream)
+
+    // Отримуємо ім'я тега, яке ми очікуємо
+    def expectedTagName = context.expand('${#Project#tag_name}')
+    log.info("Очікуване ім'я видаленого тегу: " + expectedTagName)
+
+    // Виводимо всі отримані теги
+    jsonResponse.tags.each { log.info("Отриманий тег: " + it.name) }
+
+    // Перевіряємо, що тег більше не існує
+    def tagFound = jsonResponse.tags.any { it.name.equalsIgnoreCase(expectedTagName) }
+
+    if (tagFound) {
+        log.error "Тег з ім'ям " + expectedTagName + " все ще існує після видалення!"
+        assert false
+    } else {
+        log.info "Тег з ім'ям " + expectedTagName + " успішно видалений!"
+        assert true
+    }
+} else {
+    log.error "Запит не вдався. Код відповіді: " + responseCode
+    assert false
+}
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="team_id" value="${#Project#team_id}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Edit Tag" id="f758c52b-b243-4d28-8eec-e31cf2579542"><con:settings/><con:config service="https://api.clickup.com" resourcePath="/api/v2/space/${#Project#space_id}/tag/${#Project#tag_name}" methodName="Edit Space Tag" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Edit Tag" id="c4b079c3-ff38-49f6-858d-62f9b6da2d14" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request>{
+    "tag": {
+      "name": "${#Project#upd_tag_name}",
+      "tag_fg": "#000001",
+      "tag_bg": "#000002"
+    }
+}</con:request><con:originalUri>https://api.clickup.com/api/v2/space/space_id/tag/tag_name</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8405420b-f700-44ca-9762-3488e7ea5f5c" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="ed3e08f3-a21e-44be-838c-3f855e4ba873" name="Check TAG with updated name in the Get Tags"><con:configuration><scriptText>import groovy.json.JsonSlurper
+import com.eviware.soapui.support.types.StringToObjectMap
+
+def url = 'https://api.clickup.com/api/v2/space/90121364847/tag'
+def authToken = 'pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD'
+
+// GET-request for ALL Tags
+def connection = new URL(url).openConnection()
+connection.setRequestMethod('GET')
+connection.setRequestProperty('Authorization', authToken)
+
+// Respons
+def responseCode = connection.responseCode
+if (responseCode == 200) {
+    def responseStream = connection.inputStream.text
+    def jsonResponse = new JsonSlurper().parseText(responseStream)
+
+    // Отримуємо ім'я тега, яке ми очікуємо
+    def expectedTagName = context.expand('${#Project#upd_tag_name}')
+    jsonResponse.tags.each { log.info("Отриманий тег: " + it.name) }
+
+    // Перевіряємо чи існує тег з таким ім'ям
+    def tagFound = jsonResponse.tags.any { it.name.equalsIgnoreCase(expectedTagName) }
+    log.info("Очікуване ім'я тега: " + expectedTagName)
+
+    if (tagFound) {
+        log.info "Тег з іменем " + expectedTagName + " успішно знайдений!"
+        assert true
+    } else {
+        log.error "Тег з іменем " + expectedTagName + " не знайдений!"
+        assert false
+    }
+} else {
+    log.error "Запит не вдався. Код відповіді: " + responseCode
+    assert false
+}
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Delete updated Tag" id="d9da0a6a-9012-4d7b-bc44-892926e553d7"><con:settings/><con:config service="https://api.clickup.com" resourcePath="/api/v2/space/${#Project#space_id}/tag/${#Project#upd_tag_name}" methodName="Delete Space Tag" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Delete Space Tag - Delete Tag" id="de12cd77-78b7-45ad-b6af-315df0fbaa1e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Authorization" value="pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://api.clickup.com</con:endpoint><con:request>
+</con:request><con:originalUri>https://api.clickup.com/api/v2/space/90121364847/tag/New_</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="e7d0112c-cbff-47fc-bf33-509b6a8109c5" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="497afee0-0a6e-425f-8aaa-3b83594e049a" name="Verify that deleted TAG is not exist in the Get Tags"><con:configuration><scriptText>import groovy.json.JsonSlurper
+import com.eviware.soapui.support.types.StringToObjectMap
+
+def url = 'https://api.clickup.com/api/v2/space/90121364847/tag'
+def authToken = 'pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD'
+
+// GET-запит для отримання всіх тегів
+def connection = new URL(url).openConnection()
+connection.setRequestMethod('GET')
+connection.setRequestProperty('Authorization', authToken)
+
+// Отримуємо відповідь
+def responseCode = connection.responseCode
+if (responseCode == 200) {
+    def responseStream = connection.inputStream.text
+    def jsonResponse = new JsonSlurper().parseText(responseStream)
+
+    // Отримуємо очікуване ім'я видаленого тега
+    def expectedTagName = context.expand('${#Project#upd_tag_name}')
+    log.info("Очікуване ім'я видаленого тега: " + expectedTagName)
+
+    // Виводимо всі отримані теги
+    jsonResponse.tags.each { log.info("Отриманий тег: " + it.name) }
+
+    // Перевіряємо, що тег більше не існує
+    def tagFound = jsonResponse.tags.any { it.name.equalsIgnoreCase(expectedTagName) }
+
+    if (tagFound) {
+        log.error "Тег з іменем " + expectedTagName + " все ще існує після видалення!"
+        assert false
+    } else {
+        log.info "Тег з іменем " + expectedTagName + " успішно видалений."
+        assert true
+    }
+} else {
+    log.error "Запит не вдався. Код відповіді: " + responseCode
+    assert false
+}
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:tearDownScript>// Iterate through each TestStep in the TestCase
+testRunner.testCase.testSteps.each { name, step ->
+    // Check if the TestStep is a request (REST or SOAP)
+    if (step.metaClass.respondsTo(step, 'getHttpRequest')) {
+        def request = step.getHttpRequest()
+        def endpoint = request.getEndpoint()    // Get the request endpoint (URL)
+        def requestBody = request.requestContent // Get the request body
+        def response = step.testRequest.response // Get the response
+        def statusCode = response?.statusCode    // Get the status code from the response
+
+        // Log the details to the console
+        log.info("Endpoint: " + endpoint)
+        log.info("Request Body: " + requestBody)
+        log.info("Status Code: " + statusCode)
+    }
+}</con:tearDownScript><con:properties/></con:testCase><con:properties><con:property><con:name>random_tage_name</con:name><con:value>262cf4d0</con:value></con:property><con:property><con:name>tag_name</con:name><con:value>${#Project#tag_name}</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>space_id</con:name><con:value>90121364847</con:value></con:property><con:property><con:name>tag_name</con:name><con:value>New_${#TestSuite#random_tage_name}</con:value></con:property><con:property><con:name>upd_tag_name</con:name><con:value>Updated_${#TestSuite#random_tage_name}</con:value></con:property><con:property><con:name>task_id</con:name><con:value>869630rqu</con:value></con:property><con:property><con:name>team_id</con:name><con:value>9012290639</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
