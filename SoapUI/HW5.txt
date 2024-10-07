@@ -1,0 +1,6 @@
+Створіть SOAPUI колекцію для API https://clickup.com/api/clickupreference/operation/GetSpaceTags/
+У процесі написання тестів використовуємо:
+
+- Змінні
+- Тест скрипти
+- За потреби пре скріпти
