@@ -1,0 +1,23 @@
+{
+  "name": "cypress_project",
+  "version": "1.0.0",
+  "author": "ikononenko",
+  "scripts": {
+    "cy": "npx cypress run",
+    "cy:open": "npx cypress open",
+    "allure:clear": "rm -rf allure-results/ allure-report cypress/screenshots || true",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.30.0",
+    "allure-cypress": "^3.0.5",
+    "cypress": "^13.15.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "allure-js-commons": "^3.0.5",
+    "mochawesome": "^7.1.3"
+  }
+}
