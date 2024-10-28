@@ -78,4 +78,6 @@ python-job:
 workflows:
   build-and-test:
     jobs:
+      - java-job
+      - node-js-job
       - python-job
