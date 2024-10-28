@@ -40,6 +40,9 @@ jobs:
           name: install all
           command: cd Cypress-JS-Allure-Aqua && npm i
       - run:
+          name: Give execution permissions to Allure
+          command: chmod +x /root/.npm-global/bin/allure
+      - run:
           name: run tests
           command: cd Cypress-JS-Allure-Aqua && npm run cy || true
       - run:
