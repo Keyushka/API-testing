@@ -1,7 +1,7 @@
 import {faker} from "@faker-js/faker";
 import * as allure from "allure-js-commons"
 
-const goalsURL = '/team/9012401356/goal'
+const goalsURL = '/team/9012430611/goal'
 
 export const getGoals = () => {
     return allure.step('Get a list of Goals', () => {

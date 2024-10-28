@@ -25,7 +25,7 @@ module.exports = defineConfig({
       allureLogCypress:false,
       allureReuseAfterSpec: true,
       token: 'pk_2144410100_UHSIC7AK5SLLZTOD067P1TI0QIXO1YGD',
-      token2: 'pk_152496286_63Q85HJ74LO35SF01G23RXHJKARFMAO2'
+      token2: 'pk_152554676_69AFE9H6120T4A98EO1P3XVRB8J8WV1H'
     }
   }
 })

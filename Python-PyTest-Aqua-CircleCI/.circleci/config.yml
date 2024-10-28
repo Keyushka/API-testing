@@ -1,0 +1,81 @@
+version: 2.1
+
+jobs:
+  java-job:
+    docker:
+      - image: circleci/openjdk:17.0.1-buster
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: cd Java-clickup && mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - run:
+          name: Run Tests
+          command: cd Java-clickup && mvn failsafe:integration-test
+      - run:
+          name: GENERATE REPORT
+          command: cd Java-clickup && mvn serenity:aggregate
+      - store_artifacts:
+          path: Java-clickup/target/site
+          destination: java-artifacts
+
+node-js-job:
+  docker:
+    - image: timbru31/java-node:latest
+  steps:
+    - checkout
+    - run:
+        name: Get access
+        command: cd Cypress-JS-Allure-Aqua && chmod 777  /root
+    - run:
+        name: Update dependencies
+        command: cd Cypress-JS-Allure-Aqua && apt update && apt upgrade -y
+    - run:
+        name: Install libs
+        command: cd Cypress-JS-Allure-Aqua && apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
+    - run:
+        name: Update cypress
+        command: cd Cypress-JS-Allure-Aqua && npm install cypress --save-dev
+    - run:
+        name: install all
+        command: cd Cypress-JS-Allure-Aqua && npm i
+    - run:
+        name: run tests
+        command: cd Cypress-JS-Allure-Aqua && npm run cy:run || true
+    - run:
+        name: generate report
+        command: cd Cypress-JS-Allure-Aqua && npm run allure:report
+    - store_artifacts:
+        path: Cypress-JS-Allure-Aqua/allure-report
+        destination: CypressReport
+
+python-job:
+  docker:
+    - image: circleci/python:3.13.0-node-browsers
+  steps:
+    - checkout
+    - run:
+        name: set up venv
+        command: |
+          python -m venv venv
+          . venv/bin/activate
+    - run:
+        name: install dependencies
+        command: |
+          . venv/bin/activate
+          cd Python-PyTest-Aqua-CircleCI
+          pip install -r requirements.txt
+    - run:
+        name: run tests
+        command: |
+          . venv/bin/activate
+          cd Python-PyTest-Aqua-CircleCI
+          pytest --template=html1/index.html --report=report.html
+    - store_artifacts:
+        path: Python-PyTest-Aqua-CircleCI/report.html
+        destination: python-report
+
+workflows:
+  build-and-test:
+    jobs:
+      - python-job
