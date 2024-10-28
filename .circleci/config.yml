@@ -26,7 +26,7 @@ jobs:
       - checkout
       - run:
           name: Get access
-          command: cd Cypress-JS-Allure-Aqua && chmod 777  /root
+          command: cd Cypress-JS-Allure-Aqua && chmod 777 /root
       - run:
           name: Update dependencies
           command: cd Cypress-JS-Allure-Aqua && apt update && apt upgrade -y
@@ -37,16 +37,19 @@ jobs:
           name: Update cypress
           command: cd Cypress-JS-Allure-Aqua && npm install cypress --save-dev
       - run:
-          name: install all
-          command: cd Cypress-JS-Allure-Aqua && npm i
+          name: Install Allure Commandline
+          command: npm install -g allure-commandline --save-dev
       - run:
           name: Give execution permissions to Allure
-          command: chmod +x /root/.npm-global/bin/allure
+          command: chmod +x $(which allure)
       - run:
-          name: run tests
+          name: Install dependencies
+          command: cd Cypress-JS-Allure-Aqua && npm i
+      - run:
+          name: Run Cypress tests
           command: cd Cypress-JS-Allure-Aqua && npm run cy || true
       - run:
-          name: generate report
+          name: Generate Allure Report
           command: cd Cypress-JS-Allure-Aqua && npm run allure:report
       - store_artifacts:
           path: Cypress-JS-Allure-Aqua/allure-report
