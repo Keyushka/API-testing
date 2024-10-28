@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: cd Java-clickup && mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+          command: cd Java-clickup && mvn clean install -DskipTests
       - run:
           name: Run Tests
           command: cd Java-clickup && mvn failsafe:integration-test

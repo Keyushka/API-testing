@@ -145,7 +145,7 @@
                         <include>**/When*.java</include>
                     </includes>
                     <excludes>
-                        <exclude>**/acceptancetests/*.java</exclude>
+                        <exclude>**/runner/*.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -154,7 +154,7 @@
                 <version>3.2.5</version>
                 <configuration>
                     <includes>
-                        <include>**/acceptancetests/*.java</include>
+                        <include>**/runner/*.java</include>
                     </includes>
                     <argLine>-Xmx512m</argLine>
                 </configuration>
