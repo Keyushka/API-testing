@@ -41,7 +41,7 @@ jobs:
           command: cd Cypress-JS-Allure-Aqua && npm i
       - run:
           name: run tests
-          command: cd Cypress-JS-Allure-Aqua && npm run cy:run || true
+          command: cd Cypress-JS-Allure-Aqua && npm run cy || true
       - run:
           name: generate report
           command: cd Cypress-JS-Allure-Aqua && npm run allure:report
@@ -51,7 +51,7 @@ jobs:
 
   python-job:
     docker:
-      - image: circleci/python:3.13.0-node-browsers
+      - image: circleci/python:3.10.1-node-browsers
     steps:
       - checkout
       - run:
