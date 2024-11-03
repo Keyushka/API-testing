@@ -1,0 +1,34 @@
+{
+  "Get Authorized User" : {
+    "transaction" : "Get Authorized User",
+    "sampleCount" : 12018,
+    "errorCount" : 11878,
+    "errorPct" : 98.83508,
+    "meanResTime" : 1410.7800798801784,
+    "medianResTime" : 396.0,
+    "minResTime" : 7.0,
+    "maxResTime" : 10359.0,
+    "pct1ResTime" : 4992.200000000001,
+    "pct2ResTime" : 6617.0,
+    "pct3ResTime" : 8790.329999999953,
+    "throughput" : 184.35908449407867,
+    "receivedKBytesPerSec" : 330.0429053516368,
+    "sentKBytesPerSec" : 15.659979957008957
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 12018,
+    "errorCount" : 11878,
+    "errorPct" : 98.83508,
+    "meanResTime" : 1410.7800798801784,
+    "medianResTime" : 396.0,
+    "minResTime" : 7.0,
+    "maxResTime" : 10359.0,
+    "pct1ResTime" : 4992.200000000001,
+    "pct2ResTime" : 6617.0,
+    "pct3ResTime" : 8790.329999999953,
+    "throughput" : 184.35908449407867,
+    "receivedKBytesPerSec" : 330.0429053516368,
+    "sentKBytesPerSec" : 15.659979957008957
+  }
+}
